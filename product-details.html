@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Orinoco - produits | ecommerce website photo</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- fontawesom -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <div class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar-center">
+            <div class="logo">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="brand">Orinoco</span>
+            </div>
+            <nav>
+              <ul id="menuItems">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="product.html">Produits</a></li>
+                <!-- <li><a href="product-details.html">À propos</a></li> -->
+                <li><a href="">Contact</a></li>
+                <li><a href="card.html">Mon panier</a></li>
+              </ul>
+            </nav>
+            <div class="cart-container">
+            <a href="card.html"><img
+              src="./images/shopping-bag-solid.svg"
+              width="30px"
+              height="30px"
+              alt="logo"
+            /></a>
+            <div class="cart-items"><span>0</span></div>
+            </div>
+
+            <img
+              src="./images/bars-solid.svg"
+              alt="menu"
+              class="menu-icon"
+              onclick="menutoggle()"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- single products details   -->
+
+    <div class="small-container single-product" id="product-container">
+      <!-- <div class="row">
+        <div class="col-2">
+          <img src="./images/vcam_1.jpg"  width="100%" alt="appareil photo" data-id="productImg">
+
+          <div class="small-img-row">
+            <div class="small-img-col">
+              <img src="./images/vcam_1.jpg" width="100%" alt="appareil photo" class="small-img">
+            </div>
+            <div class="small-img-col">
+              <img src="./images/camera-801924.jpg" width="100%" alt="appareil photo" class="small-img">
+            </div>
+            <div class="small-img-col">
+              <img src="./images/camera-1055066.jpg" alt="appareil photo" class="small-img">
+            </div>
+            <div class="small-img-col">
+              <img src="./images/camera-1130731_1920.jpg"  width="100%" alt="appareil photo" class="small-img">
+            </div>
+          </div>
+
+
+        </div>
+        <div class="col-2" id="single-product">
+          <p>Accueil / appareil photo</p>
+          <h1>Reflex - Canon EOS 1000D </h1>
+          <h4>299.00€</h4>
+          <select name="" id="lenses">
+            <option value="">Lentille</option>
+            <option value="">35mm</option>
+            <option value="">45mm</option>
+            <option value="">55mm</option>
+          </select>
+          <input type="number" value="1">
+          <a href="" class="btn add-cart-btn cart">Ajouter au panier</a>
+          <h3>Détail du produit<i class="fa fa-indent"></i></h3>
+          <br>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum animi deleniti sequi rerum ratione quasi consequatur.</p>
+        </div>
+      </div> -->
+    </div>
+    <!-- title -->
+    <div class="small-container">
+      <div class="row row-2">
+        <h2>Nos produits</h2>
+        <p><a href="product.html">voir plus</a></p>
+      </div>
+    </div>
+
+    <!-- products -->
+    <div class="small-container">
+      
+      <div class="row" id="row">
+        <!-- <div class="col-4">
+          <img src="./images/vcam_1.jpg" alt="appareil photo" />
+          <h4>Reflex - Canon EOS 1000D + Objectif Canon EF-S 18</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p class="price">299.00€</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/vcam_2.jpg" alt="appareil photo" />
+          <h4>Bridge - Canon PowerShot SX400 IS Noir f/3,4 - f/5,8</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p class="price">139.99€</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/vcam_3.jpg" alt="appareil photo" />
+          <h4>Appareil photo Hybride Sony A7 III + 28-70mm</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p class="price">1849.99€</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/vcam_4.jpg" alt="appareil photo" />
+          <h4>Appareils photos bridge SONY DSC-H300 - Noir</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p class="price">189.99€</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/vcam_5.jpg" alt="appareil photo" />
+          <h4>FUJIFILM - FinePix S6500-FD 6,3 MP</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p class="price">2199.99€</p>
+        </div> -->
+      </div>
+    </div>
+
+    
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- <div class="footer-col-1">
+                <h3>Télécharger notre App</h3>
+                <p>Télécharger l'App pour andoïd et téléphone ios</p>
+                
+            </div> -->
+          <div class="footer-col-2">
+            <i class="fas fa-shopping-cart footer"></i><span>Orinoco</span>
+            <p>
+              Rejoignez Orinoco et prolongez la garantie de certains produits
+              voir liste ci dessous.
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h3>Liens utiles</h3>
+            <ul>
+              <li><a href="">A propos d'OM Digital Solutions</a></li>
+              <li><a href="">Produits</a></li>
+              <li><a href="">Contactez notre support client</a></li>
+              <li><a href="">Appareils Photo & Objectifs</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-4">
+            <h3>Suivez-nous</h3>
+            <ul>
+              <li>Facebook</li>
+              <li>Twitter</li>
+              <li>Instagram</li>
+              <li>Youtube</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">Copyright 2021 - Yannick nasso</p>
+      </div>
+    </div>
+
+    <!-- JavaScript pour menu -->
+    <!-- <script>
+      var menuiItems = document.getElementById("menuItems");
+      menuItems.style.maxHeight = "0px";
+      function menutoggle() {
+        if (menuItems.style.maxHeight == "0px") {
+          menuItems.style.maxHeight = "200px";
+        } else {
+          menuItems.style.maxHeight = "0px";
+        }
+      }
+    </script> -->
+
+    <!-- product gallery -->
+
+  <!--  <script>
+      let productImg = document.getElementById("productImg");
+      let smallImg = document.getElementsByClassName('small-img');
+      smallImg[0].onclick = function () {
+        productImg.src = smallImg[0].src;
+      }
+      smallImg[1].onclick = function () {
+        productImg.src = smallImg[1].src;
+      }
+      smallImg[2].onclick = function () {
+        productImg.src = smallImg[2].src;
+      }
+      smallImg[3].onclick = function () {
+        productImg.src = smallImg[3].src;
+      }
+    </script> -->
+    <script src="./Js/articles.js"></script>
+    <script src="./Js/index.js"></script>
+    <script src="./Js/product-page.js"></script>
+
+  </body>
+</html>
