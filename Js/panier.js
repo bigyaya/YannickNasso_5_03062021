@@ -87,7 +87,7 @@ productCart.insertAdjacentHTML("beforeend", clearAll);
 
 /* retirer la clé du produit au click */
 let clearAllCart = document.querySelector('.btn-clear-all');
-console.log(clearAllCart);
+//console.log(clearAllCart);
 clearAllCart.addEventListener('click', (e) => {
     e.preventDefault();
     localStorage.removeItem('productStored')
@@ -99,7 +99,6 @@ clearAllCart.addEventListener('click', (e) => {
 
 //--------------------Calcul du prix total------------------//
 let priceTable = []
-
 /* récuprer les prix dans le locaStorage */
 for (let m = 0; m < productStorage.length; m++) {
     let priceStorage = productStorage[m].price;
@@ -128,19 +127,25 @@ displayTotal.innerHTML = `
 //--------------------Formulaire------------------//
 
 /* affichage du formulaire */
-let displayForm = () =>{
+let displayForm = () => {
     let form = document.querySelector('.form-container');
-    form.innerHTML = `<div class="form form-row">
+    form.innerHTML = `
+                <h2>Remplissez le formulaire</h2>
+                <div class="form form-row">
                     <div class="col-md-4 mb-3">
                     <label for="prenom">Prénom</label>
-                    <input type="text" class="form-control" id="prenom" placeholder="Prénom" value="" required>
+                    <input type="text"  class="form-control" id="prenom" placeholder="Prénom" value="" "required>
                     </div>
                     <div class="col-md-4 mb-3">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" id="nom" placeholder="Nom" value="" required>
                     </div>
+                    <div class="col-md-4 mb-3">
+                    <label for="adresse">adresse</label>
+                    <input type="text" class="form-control" id="adresse" placeholder="adresse" value="" required>
+                    </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Adresse mail</label>
+                        <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="adresse@example.com">
                     </div>
                 </div>
@@ -160,7 +165,7 @@ let displayForm = () =>{
                 </div>
                 <div class="mb-3 message">
             <label for="message" class="form-label">Votre message</label>
-            <textarea class="form-control" id="message" rows="3"></textarea>
+            <textarea class="form-control" id="message" rows="3" minlength="5" maxlength="200"></textarea>
             </div>
                 <div class="form form-group">
                     <div class="form-check">
@@ -169,7 +174,208 @@ let displayForm = () =>{
                         Agree to terms and conditions
                     </label>
                     </div>
-                    <button class="btn btn-primary" type="submit" id="submit">Envoyer</button>
+                    <button class="btn btn-primary" type="submit" id="submit" name="submit">commandez</button>
                 </div>`;
 }
-displayForm()
+displayForm();
+
+
+/* event sur le bounton commandez */
+
+let submitForm = document.getElementById('submit');
+//console.log(submitForm);
+submitForm.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    /* récupérer les valeurs du formulaire dans un objet + les mettre dans LocalStorage */
+    let contact = {
+        prenom: document.getElementById('prenom').value,
+        nom: document.getElementById('nom').value,
+        adresse: document.getElementById('adresse').value,
+        email: document.getElementById('email').value,
+        ville: document.getElementById('ville').value,
+        pays: document.getElementById('pays').value,
+        codePostal: document.getElementById('codePostal').value,
+        message: document.getElementById('message').value
+    }
+
+
+    //--------------------Valider les champs du formulair------------------//
+
+
+
+    const regexString = (value) => {
+        return /^[A-Za-zàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'-]{3,20}$/.test(value)
+    };
+    const regexZip = (value) => {
+        return /^[0-9]{5}$/.test(value)
+    };
+    const regexEmail = (value) => {
+        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
+    };
+    const regexAdress = (value) => {
+        return /^[A-Za-z0-9àèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'-\s]{5,50}$/.test(value);
+    };
+    const regexVille = (value) => {
+        return /^[A-Za-zàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'-]{3,20}$/.test(value)
+    };
+    const regexPays = (value) => {
+        return /^[A-Za-zàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'-]{3,20}$/.test(value)
+    };
+
+    /* validation du prénom */
+    function valPrenom() {
+        const lePrenom = contact.prenom;
+        console.log(lePrenom);
+        if (regexString(lePrenom)) {
+            console.log("OK");
+            return true;
+        } else {
+            console.log("KO");
+            alert('chiffre et symbole ne sont pas autorisé \n min: 3 caractère, max: 20 caractère')
+            return false;
+        }
+
+    };
+    /* validation du Nom */
+    function valNom() {
+        const leNom = contact.nom;
+        console.log(leNom);
+        if (regexString(leNom)) {
+            console.log("OK");
+            return true;
+        } else {
+            console.log("KO");
+            alert('chiffre et symbole ne sont pas autorisé \n min: 3 caractère, max: 20 caractère')
+            return false;
+        }
+
+    };
+    /* validation du codePostal */
+    function valZip() {
+        const leZip = contact.codePostal;
+        console.log(leZip);
+        if (regexZip(leZip)) {
+            console.log("OK");
+            return true;
+        } else {
+            console.log("KO");
+            alert('Le code postal ne doit contenir que des chiffres allant de 0 à 5')
+            return false;
+        }
+
+    };
+    /* validation de l'email */
+    function valEmail() {
+        const leEmail = contact.email;
+        console.log(leEmail);
+        if (regexEmail(leEmail)) {
+            console.log("OK");
+            return true;
+        } else {
+            console.log("KO");
+            alert("l'Email n'est pas au bon format")
+            return false;
+        }
+    };
+    /* validation de l'adresse */
+    function valAdress() {
+        const leAdress = contact.adresse;
+        console.log(leAdress);
+        if (regexAdress(leAdress)) {
+            console.log("OK");
+            return true;
+        } else {
+            console.log("KO");
+            alert("l'adress n'est pas au bon format")
+            return false;
+        }
+    };
+    /* validation de la ville */
+    function valVille() {
+        const leVille = contact.ville;
+        console.log(leVille);
+        if (regexVille(leVille)) {
+            console.log("OK");
+            return true;
+        } else {
+            console.log("KO");
+            alert('chiffres et symboles ne sont pas autorisé \n min: 3 caractère, max: 20 caractère')
+            return false;
+        }
+
+    };
+    /* validation du Pays */
+    function valPays() {
+        const lePays = contact.pays;
+        console.log(lePays);
+        if (regexPays(lePays)) {
+            console.log("OK");
+            return true;
+        } else {
+            console.log("KO");
+            alert('chiffres et symboles ne sont pas autorisé \n min: 3 caractère, max: 20 caractère')
+            return false;
+        }
+
+    };
+
+    /* valeur du formulaire dans locaStorage */
+    if (valPrenom() && valNom() && valZip() && valEmail() && valAdress() && valVille() && valPays()) {
+        localStorage.setItem('contact', JSON.stringify(contact))
+
+    } else {
+        //alert("Veuillez remplir le champ du formulaire")
+    };
+
+
+    /* formulaire + produits séléctionner à mettre dans le Storage */
+    let sendForm = {
+        contact,
+        productStorage
+    };
+    console.log("sendForm");
+    console.log(sendForm);
+
+    /* envoie de sendForm sur le serveur */
+    let postForm = fetch('http://localhost:3000/api/cameras/order', {
+        method: "POST",
+        body: JSON.stringify(sendForm),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+})
+
+
+
+
+
+//--------------------Mettre les valeur de l'objet contact du locaStorage dans le formulair------------------//
+
+/* prendre les propriétés et les convertirs en javascript */
+let getContact = localStorage.getItem('contact')
+let parseContact = JSON.parse(getContact)
+
+//console.log(parseContact);
+
+/* fonction pour remplir le formulair à partir
+ des propriétés de l'objet -contact- dans le localStorage */
+function fillForm(input) {
+    if (parseContact == null) {
+
+        console.log('il y a rien dans le formulaire');
+    } else {
+        document.getElementById(`${input}`).value = parseContact[input]
+    }
+};
+
+fillForm('prenom')
+fillForm('nom')
+fillForm('adresse')
+fillForm('email')
+fillForm('ville')
+fillForm('pays')
+fillForm('codePostal')
+
