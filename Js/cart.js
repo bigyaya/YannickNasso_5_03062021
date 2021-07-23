@@ -6,9 +6,9 @@ fetch("http://localhost:3000/api/cameras")
         for (jsonArticle of jsonListArticle) {
             let article = new Article(jsonArticle);
 
-            
 
-            
+
+
             function onLoadCartNumber() {
                 let productNumbers = localStorage.getItem('cartNumbers');
                 if (productNumbers) {
@@ -17,20 +17,20 @@ fetch("http://localhost:3000/api/cameras")
 
             }
 
-            
 
-            
+
+
             /* affichage des produits dans le panier */
-            function displayCarts(){
+            function displayCarts() {
                 let cartItems = localStorage.getItem('productIdInCart');
                 cartItems = JSON.parse(cartItems)
                 let articleContainer = document.getElementById('article-container')
                 let cartCost = localStorage.getItem("totalCost")
-                
-                if(cartItems && articleContainer){
-                }articleContainer.innerHTML = '',
-                Object.values(cartItems).map(article =>{
-                    articleContainer.innerHTML += `
+
+                if (cartItems && articleContainer) {
+                } articleContainer.innerHTML = '',
+                    Object.values(cartItems).map(article => {
+                        articleContainer.innerHTML += `
                     <table>
                         <tr>
                             <th>Produit</th>
@@ -58,8 +58,8 @@ fetch("http://localhost:3000/api/cameras")
                 </div>
 
                     `;
-                    
-                })
+
+                    })
                 /* let totalPrice = document.getElementById('total-price')
                 totalPrice.innerHTML = `
                 <table>
@@ -69,9 +69,9 @@ fetch("http://localhost:3000/api/cameras")
                         </tr>
                     </table>` */
 
-                
 
-                
+
+
             }
 
             onLoadCartNumber()

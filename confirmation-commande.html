@@ -1,0 +1,147 @@
+    <!DOCTYPE html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+    <html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Orinoco - produits | ecommerce website photo</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+        />
+
+        <!-- fontawesom -->
+        <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+        crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <!-- HEADER -->
+        <div class="header">
+        <div class="container">
+            <div class="navbar">
+            <div class="navbar-center">
+                <div class="logo">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="brand">Orinoco</span>
+                </div>
+                <nav>
+                <ul id="menuItems">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="product.html">Produits</a></li>
+                    <!-- <li><a href="product-details.html">À propos</a></li> -->
+                    <!-- <li><a href="">Contact</a></li> -->
+                    <li><a href="card.html">Mon panier</a></li>
+                </ul>
+                </nav>
+                <div class="cart-container">
+                <a href="card.html"
+                    ><img
+                    src="./images/shopping-bag-solid.svg"
+                    width="30px"
+                    height="30px"
+                    alt="logo"
+                /></a>
+                <!--  <div class="cart-items"><span>0</span></div> -->
+                </div>
+
+                <img
+                src="./images/bars-solid.svg"
+                alt="menu"
+                class="menu-icon"
+                onclick="menutoggle()"
+                />
+            </div>
+            </div>
+            <!-- <div class="row">
+                    <div class="col-2">
+                        <h1>Faite des photo avec style !</h1>
+                        <br />
+                        <p>
+                        Cameras de pointe avec le look & feel <br />
+                        d'un appareil photo vintage
+                        </p>
+                        <a href="" class="btn">Voir maintenant &#8594;</a>
+                    </div>
+                    <div class="col-2">
+                        <img src="/images/camera-918565_1920.jpg" alt="" />
+                    </div>
+                    </div> -->
+        </div>
+        </div>
+
+        <div class="small-container" id="container-order">
+        <!-- <h1 class="h1Order">Merci yannick pour votre commande!</h1>
+                <div class="order-confirm">
+                    <p class="pOrder">Vous recevrez votre facture de <strong>1599€</strong> et les détails de livraison dans votre boîte mail ou à l'adresse que vous avez indiquée.</p>
+                <p class="pOrder">Une expédition de la commande <strong>#EU45892</strong> est en route.</p>
+                </div> -->
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer footer-order">
+        <div class="container">
+            <div class="row">
+            <!-- <div class="footer-col-1">
+                        <h3>Télécharger notre App</h3>
+                        <p>Télécharger l'App pour andoïd et téléphone ios</p>
+                        
+                    </div> -->
+            <div class="footer-col-2">
+                <i class="fas fa-shopping-cart footer"></i><span>Orinoco</span>
+                <p>
+                Rejoignez Orinoco et prolongez la garantie de certains produits
+                voir liste ci dessous.
+                </p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Liens utiles</h3>
+                <ul>
+                <li><a href="">A propos d'OM Digital Solutions</a></li>
+                <li><a href="">Produits</a></li>
+                <li><a href="">Contactez notre support client</a></li>
+                <li><a href="">Appareils Photo & Objectifs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Suivez-nous</h3>
+                <ul>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+                <li>Youtube</li>
+                </ul>
+            </div>
+            </div>
+            <hr />
+            <p class="copyright">Copyright 2021 - Yannick nasso</p>
+        </div>
+        </div>
+
+        <!-- JavaScript pour menu -->
+        <script>
+        var menuiItems = document.getElementById("menuItems");
+        menuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (menuItems.style.maxHeight == "0px") {
+            menuItems.style.maxHeight = "200px";
+            } else {
+            menuItems.style.maxHeight = "0px";
+            }
+        }
+        </script>
+        <script src="./Js/confirmationCommande.js"></script>
+    </body>
+    </html>

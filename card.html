@@ -45,7 +45,7 @@
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="product.html">Produits</a></li>
                         <!-- <li><a href="product-details.html">À propos</a></li> -->
-                        <li><a href="">Contact</a></li>
+                        <!-- <li><a href="">Contact</a></li> -->
                         <li><a href="card.html">Mon panier</a></li>
                     </ul>
                     </nav>
@@ -56,7 +56,7 @@
                 height="30px"
                 alt="logo"
                 /></a>
-                <div class="cart-items"><span>0</span></div>
+               <!--  <div class="cart-items"><span>0</span></div> -->
                 </div>
                     <img
                     src="./images/bars-solid.svg"
@@ -201,7 +201,7 @@
             </div>
 
             <!-- JavaScript pour menu -->
-            <!-- <script>
+            <script>
             var menuiItems = document.getElementById("menuItems");
             menuItems.style.maxHeight = "0px";
             function menutoggle() {
@@ -211,10 +211,19 @@
                 menuItems.style.maxHeight = "0px";
                 }
             }
-            </script> -->
+            </script>
+
+<script type="text/javascript">
+function verifInput(id, submit) {
+    if(document.getElementById(id).value != "")
+        document.getElementById(submit).disabled = "";
+}
+</script>
+
         <script src="./Js/articles.js"></script>
-        <!-- <script src="./Js/cart.js"></script> -->
         <script src="./Js/panier.js"></script>
+        <!-- <script src="./Js/product-page.js"></script> -->
+        <!-- <script src="./Js/validity.js"></script> -->
         
         
         </body>
