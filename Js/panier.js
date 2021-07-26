@@ -2,11 +2,12 @@
 
 //produit dans localStorage
 let productStorage = JSON.parse(localStorage.getItem('products'))
-console.log(productStorage);
+//console.log(productStorage);
 
-//affichage du produit
+
+//---------------------affichage du produit----------------------------//
 let productCart = document.getElementById('cart-container')
-console.log(productCart);
+//console.log(productCart);
 
 if (productStorage === null || productStorage == 0) {
     //si le localStorage est vide
@@ -105,7 +106,7 @@ let priceTable = []
 for (let m = 0; m < productStorage.length; m++) {
     let priceStorage = productStorage[m].price;
     priceTable.push(priceStorage)
-    //console.log(priceTable);
+    console.log(priceTable);
 }
 
 /* calcule les prix dans le tableau de prix avec .reduce() */
@@ -170,10 +171,7 @@ let displayForm = () => {
             </div>
             </form>
             
-            <form name="test" action="check.php" method="post">
-            <input type="text" id="inputTest" onkeypress="verifInput(this.id, 'btnSubmit');" />
-            <input type="submit" name="btnSub" disabled="disabled" id="btnSubmit" />
-            </form>
+            
             
             `;
 }

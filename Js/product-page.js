@@ -49,14 +49,16 @@ function getProduct() {
         .then(data => data.json())
         .then(jsonListArticle => {
             for (jsonArticle of jsonListArticle) {
-                console.log(jsonListArticle);
+                //console.log(jsonListArticle);
+
                 /* récuperation de la chaîne de requête dans l'URL */
                 const queryString_url_id = window.location.search
+                //console.log(queryString_url_id);
+
                 //extraire  l'ID
                 const urlSearchParams = new URLSearchParams(queryString_url_id)
                 let id = urlSearchParams.get("id")
                 //console.log(id);
-
 
                 //affichage du produit (de l'objet) séléctionner par id
                 let idProductSelect = jsonListArticle.find((element) => element._id === id)
@@ -65,13 +67,7 @@ function getProduct() {
 
                 /* function displayProducts() { */
                 let productContainer = document.getElementById('product-container');
-                /* let cartItems = localStorage.getItem('productIdInCart');
-                cartItems = JSON.parse(cartItems)
-                if (cartItems && productContainer) {
-                } */
-                //structure du produit séléctionné
-                /* productContainer.innerHTML = '',
-                    Object.values(cartItems).map(() => { */
+                
                 productContainer.innerHTML = `
                         <div class="row" >
                 <div class="col-2">
@@ -112,6 +108,9 @@ function getProduct() {
                 <p>${idProductSelect.description}</p>
                 </div>
             </div>`;
+                //console.log(idProductSelect.lenses);
+
+
                 //adaptation du nombre d'options dans l'objet du produit
                 let optQuantity = idProductSelect.lenses;
                 let optTab = []
@@ -140,7 +139,7 @@ function getProduct() {
 
                     //récupérer option de l'article
                     let optForm = idForm.value;
-                    // console.log(optForm);
+                    //console.log(optForm);
 
                     //récupérer les valeur de l'article
                     let optionProduit = {
@@ -152,7 +151,7 @@ function getProduct() {
                         quantite: 1,
                         price: idProductSelect.price / 100
                     }
-                    console.log(optionProduit);
+                    //console.log(optionProduit);
 
                     // localSorage
                     let productStorage = JSON.parse(localStorage.getItem('products'))
@@ -189,12 +188,7 @@ function getProduct() {
 
                 });
 
-                /* }) */
-
-
-
-                /* } */
-                /* displayProducts() */
+                
 
             }
         })
